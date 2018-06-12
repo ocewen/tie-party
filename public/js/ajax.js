@@ -690,9 +690,7 @@ $(function() {
 				$('.single-list').empty();
 				var content = '';
 				for(var i = 0; i < json.length; i++) {
-					var url = 'http://'+window.location.hostname+'/images/users/'+json[i][0].id;
-					var url2 = "http://"+window.location.hostname+"/images/users/default.jpg";
-					content += '<div class="single-list-item"><div class="image-box single-list-image"><img class="backup_picture" src="'+url+'" onerror="http://homestead.test/images/users/default.jpg" ></div><div class="single-list-text"><span>'+json[i][0].nombre+' '+json[i][0].apellidos+'</span><div class="party-options"><a href="/servicio/ana?iNaE='+json[i].id+'&fUyEi='+idFiesta+'"><i class="fa fa-plus"></i></a></div></div></div>';
+					content += '<div class="single-list-item"><div class="image-box single-list-image"><img class="backup_picture" src="'+json[i][0].foto+'" onerror="http://homestead.test/images/users/default.jpg" ></div><div class="single-list-text"><span>'+json[i][0].nombre+' '+json[i][0].apellidos+'</span><div class="party-options"><a href="#"><i class="fa fa-user"></i></a></div></div></div>';
 				}
 				$('.single-list').html(content);
 		}).fail(

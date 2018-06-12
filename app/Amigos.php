@@ -130,7 +130,7 @@ class Amigos extends Model
 	
 	public function getByUser()
 	{
-		$amigosArray = Amigos::select('*')->where('email_usuario1', auth()->user()->id)->orWhere('email_usuario2', auth()->user()->id)->get();
+		$amigosArray = Amigos::select('*')->where('email_usuario2', auth()->user()->id)->get();
 		return $amigosArray;
 	}
 }

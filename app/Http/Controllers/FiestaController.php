@@ -78,6 +78,14 @@ class FiestaController extends Controller
         foreach($part as $user) {
             $obj = new User();
             $arr[] = $obj->get($user['id_usuario']);
+            $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $arr[0][0]['email'] ) ) ) . "?d=" . urlencode("https://www.somewhere.com/homestar.jpg") . "&s=" . 240;
+				if(file_exists('../../public/images/users/' . $arr[0][0]['id'])) {
+					$arr[0][0]['foto'] = 'http://tie-party-krast.c9users.io/images/users/'. $arr[0][0]['id'];
+				} else if(@fopen($grav_url,"r")){
+					$arr[0][0]['foto'] = $grav_url;
+				} else {
+					$arr[0][0]['foto'] = 'http://tie-party-krast.c9users.io/images/users/default.jpg';
+				}
         }
         return $arr;
     }

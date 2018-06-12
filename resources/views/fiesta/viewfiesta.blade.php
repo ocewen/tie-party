@@ -9,7 +9,7 @@
                     <!-- Single list item -->
                     <div class="single-list-item party-type" id="lista_invitados">
                         <div class="image-box single-list-image">
-                            <img src="{{URL::asset('/images/public_images/fiesta2.jpg')}}" alt="Imagen de ejemplo">
+                            <img src="{{URL::asset('/images/public_images/Invitados.jpg')}}" alt="Imagen de ejemplo">
                         </div>
                         <div class="single-list-text">
                             <span>Invitados</span>
@@ -19,7 +19,7 @@
                     <!-- Single list item -->
                     <div class="single-list-item party-type serv_cont">
                         <div class="image-box single-list-image">
-                            <img src="{{URL::asset('/images/public_images/fiesta2.jpg')}}" alt="Imagen de ejemplo">
+                            <img src="{{URL::asset('/images/public_images/Servicios.jpg')}}" alt="Imagen de ejemplo">
                         </div>
                         <div class="single-list-text">
                             <span>Servicios</span>
@@ -29,7 +29,7 @@
                     <!-- Single list item -->
                     <div class="single-list-item party-type lista-herramientas">
                         <div class="image-box single-list-image">
-                            <img src="{{URL::asset('/images/public_images/fiesta2.jpg')}}" alt="Imagen de ejemplo">
+                            <img src="{{URL::asset('/images/public_images/Herramientas.jpg')}}" alt="Imagen de ejemplo">
                         </div>
                         <div class="single-list-text">
                             <span>Lista de Herramientas (Incorporadas por Tie-Party)</span>
@@ -39,7 +39,7 @@
                     <!-- Single list item -->
                     <div class="single-list-item party-type" id="inv-single">
                         <div class="image-box single-list-image">
-                            <img src="{{URL::asset('/images/public_images/fiesta2.jpg')}}" alt="Imagen de ejemplo">
+                            <img src="{{URL::asset('/images/public_images/EnviarInvitaciones.jpg')}}" alt="Imagen de ejemplo">
                         </div>
                         <div class="single-list-text">
                             <span>Enviar invitaciones</span>
