@@ -1,4 +1,4 @@
-@include('layouts.headerTieSingle', array('body_valor' => 'fiesta'))
+@include('layouts.headerTieSingle', array('body_valor' => $arr[0]['tipo']))
         <section id="single-content" mm="{{$arr[0]['id']}}">
             <!-- Sidebar -->
             @include('layouts.fiestaSidebar', array('arr' => $arr))
