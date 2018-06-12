@@ -6,9 +6,11 @@
         @endif 
 
         @if (file_exists(public_path().'/images/users/'.Auth::user()->id))
-        <img src="{{URL::asset('/images/users/'.Auth::user()->id)}}" alt="foto ejemplo">
-        @else
-        <img src="{{URL::asset('/images/users/default.jpg')}}" alt="foto ejemplo">
+            <img src="{{URL::asset('/images/users/'.Auth::user()->id)}}" alt="foto ejemplo">
+        @elseif(@fopen('https://www.gravatar.com/avatar/' . md5( strtolower( trim( Auth::user()->email ) ) ) . '?d=' . urlencode('https://www.somewhere.com/homestar.jpg') . '&s=' . 240, "r"))
+                <img src="{{'https://www.gravatar.com/avatar/' . md5( strtolower( trim( Auth::user()->email ) ) ) . '?d=' . urlencode('https://www.somewhere.com/homestar.jpg') . '&s=' . 240}}" alt="foto ejemplo">
+                @else
+                <img src="{{URL::asset('/images/users/default.jpg')}}" alt="foto ejemplo">
         @endif
         
         <h2 id="tai-funct" tai="{{ Auth::user()->id }}">{{ Auth::user()->nombre }}</h2>
