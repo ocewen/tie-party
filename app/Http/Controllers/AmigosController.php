@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Amigos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AmigosController extends Controller
 {
@@ -44,69 +45,18 @@ class AmigosController extends Controller
         return $obj->getSolicitudes();
     }
     
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function delete(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Amigos  $amigos
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Amigos $amigos)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Amigos  $amigos
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Amigos $amigos)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Amigos  $amigos
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Amigos $amigos)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Amigos  $amigos
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Amigos $amigos)
-    {
-        //
+        $id = $request->get('fDpS');
+        $obj = new Amigos();
+        $arr = $obj->getByUser();
+        foreach($arr as $rel)
+        {
+            if(Hash::check($rel['id'], $id)) {
+                $compare = Amigos::find($rel['id']);
+                $compare->delete();
+                return redirect('/fiesta/user');
+            }
+        }
     }
 }

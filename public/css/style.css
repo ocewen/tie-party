@@ -694,7 +694,7 @@ body.single {
     background-color: #EAEAEA;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
     flex-flow: row wrap;
     padding: 40px;
     min-height: calc(100% - 50px);
@@ -707,7 +707,7 @@ body.single {
     margin: 20px;
     background-color: #fff;
     position:relative;
-    height: 260px;
+    height: auto;
     box-shadow: 2px 2px 4px rgba(100,100,100,0.8);
 }
 
@@ -953,7 +953,7 @@ body.single::-webkit-scrollbar {
 
 .ajax-search {
     background-color: white;
-    margin-top: -10px;
+    border-radius: 5px;
 }
 
 #search_ulajax li {

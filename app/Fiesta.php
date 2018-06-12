@@ -55,8 +55,10 @@ class Fiesta extends Model
 
 	public function getUserFiesta($id) {
 		$date = date('Y-m-d');
-		$fiestasArray = Fiesta::select('*')->where('id_usuario', $id)->where(['fecha' => '>'.$date, 'fecha'=> NULL])->get();
-		return $fiestasArray;
+		$sql = 'select * from fiesta where id_usuario = '.$id.' AND ((fecha >= "'.$date.'") OR (fecha IS NULL))';
+        $fiestasArray = DB::select($sql);
+        $result = json_decode(json_encode($fiestasArray), true);
+		return $result;
 	}
 
 	public function getUserFiestaPasadas($id) {
@@ -79,11 +81,12 @@ class Fiesta extends Model
 		return $res;
 	}
 
-	public function act($id, $date, $time)
+	public function act($id, $date, $time, $direccion)
 	{
 		$fiesta = Fiesta::find($id);
 		$fiesta->fecha = $date;
 		$fiesta->hora = $time;
+		$fiesta->direccion = $direccion;
 
 		$fiesta->save();
 	}
@@ -118,7 +121,7 @@ class Fiesta extends Model
 
 	public function buscarAjax($fiesta)
 	{
-		$fiesta = Fiesta::select('*')->where('nombre','like','%' .$fiesta . '%')->where('privada','N')->get();
+		$fiesta = Fiesta::select('*')->where('nombre','like','%' .$fiesta . '%')->where('privada','N')->limit(5)->get();
 		return $fiesta;
 	}
 }

@@ -55,6 +55,7 @@ Route::get('/salir', 'UserController@salir')->name('cerrarsesion')->middleware('
 Route::get('/empresa/register', 'EmpresaController@viewregister')->name('registerempresa');
 Route::post('/empresa/register/success', 'EmpresaController@register')->name('regemp');
 Route::get('/empresa/servicios', 'ServicioController@getEmpresa')->middleware('auth');
+Route::get('/empresa/fiestas', 'EmpresaController@getFiestas')->middleware('auth');
 //--------
 //--------
 
@@ -67,6 +68,7 @@ Route::get('/amigos/solicitudes', 'AmigosController@verSolicitudes')->middleware
 Route::post('/amigos/buscar', 'UserController@getFromEmail')->middleware('auth');
 Route::get('/amigos/buscarajax', 'UserController@getFromFriends')->middleware('auth');
 Route::get('/amigos/chat', 'AmigosController@startChat')->name('chat')->middleware('auth');
+Route::get('/delete/friend', 'AmigosController@delete')->middleware('auth');
 //--------
 //--------
 
@@ -111,6 +113,7 @@ Route::get('/fiesta/fiesta/invitados', 'FiestaController@invitados')->middleware
 Route::get('/fiesta/fiesta/dUdLTP', 'ParticiparController@eliminar')->middleware('auth');
 Route::get('/participar/correo', 'ParticiparController@unirseEmail')->middleware('auth');
 Route::post('/fiesta/subirfoto', 'FiestaController@subirFoto')->name('subirfotofiesta')->middleware('auth');
+Route::get('/datos/fiesta', 'FiestaController@get')->middleware('auth');
 //---------
 //---------
 

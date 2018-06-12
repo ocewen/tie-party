@@ -51,7 +51,7 @@ class FiestaController extends Controller
         $arr = $obj->get($id);
         $kk = $obj->compareId($id);
         if(count($kk) < 1)
-            return redirect('/')->with('status', 'A mi no me la juegas primo');
+            return redirect('/')->with('status', 'ERROR: No seas gitano');
         $participar = new Participar();
         $part = $participar->getParticipaciones();
         $obj = new Amigos();
@@ -210,8 +210,9 @@ class FiestaController extends Controller
 
         $date = $request->get('date');
         $time = $request->get('time');
+        $direccion = $request->get('direccion');
         $id = $request->get('FiPAlF');
-        $party = $fiesta->act($id, $date, $time);
+        $party = $fiesta->act($id, $date, $time, $direccion);
         return redirect('fiesta/fiesta?fiesta='.$id);
     }
 
@@ -278,4 +279,13 @@ class FiestaController extends Controller
         $res = $upload->upload();
         return redirect('/fiesta/fiesta?fiesta='.$id);
 	}
+	
+	public function get()
+	{
+	    $id = $_GET['fiesta'];
+	    $obj = new Fiesta;
+	    $arr = $obj->get($id);
+	    return $arr;
+	}
+	
 }

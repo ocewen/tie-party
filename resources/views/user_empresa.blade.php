@@ -29,6 +29,7 @@
                 </div>
             </div>
             @include('layouts.modalCrearServicio')
+            @include('layouts.modalCrearFiesta')
             
         </section>
         <footer>

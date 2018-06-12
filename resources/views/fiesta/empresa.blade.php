@@ -1,10 +1,10 @@
 @include('layouts.headerTieSingle', array('body_valor' => ''))
 		<section id="single-content">
 			<!-- Sidebar -->
-			@include('layouts.singleSidebar')
+			 @include('layouts.singleEmpresaSidebar')
 			   <!-- Fin sidebar -->
 			<div class="single-content-right">
-				@include('layouts.singleNavBar', array('$total' => 'fiestas'))
+				@include('layouts.singleEmpresaNavBar')
 				<div class="single-list">
 					<!-- Single list item -->
 					@if($fiestas)
@@ -30,36 +30,14 @@
 						</div>
 					@endforeach
 					@endif
-
-					@if($part)
-					@foreach($part as $fiesta)
-						<div class="single-list-item {{$fiesta['tipo']}}-type">
-						<div class="image-box single-list-image">
-							<a href="#" id="view-datos-fiesta" fIpM="{{$fiesta['id']}}">
-								<img src="{{$fiesta['foto']}}" alt="Imagen de ejemplo">
-							</a>
-						</div>
-						<div class="single-list-text">
-							<a href="#"><span>{{$fiesta['nombre_fiesta']}}</span></a>
-							<div class="party-options">
-								<a title="Dejar fiesta" href="/fiesta/salir?fUyEi={{$fiesta['id']}}"><i class="fa fa-door-open"></i></a>    
-							</div>                            
-						</div>
-						</div>
-					@endforeach
-					@endif
 					<!-- Fin Single list item -->
 				</div>
 			</div>
 			@include('layouts.modalCrearFiesta')
-
-			@include('layouts.modalBuscarAmigos')
-
-			@include('layouts.modalBuscarFiesta')
+			
+			@include('layouts.modalCrearServicio')
 
 			@include('layouts.modalInvitarFiesta ')
-			
-			@include('layouts.modalDatosFiesta ')
 			
 		</section>
 		<footer>

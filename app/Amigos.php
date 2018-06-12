@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class Amigos extends Model
 {
@@ -14,6 +15,7 @@ class Amigos extends Model
 		foreach ($amigosArray as $usuario) {
 			$sql = "*";
 			if($usuario['email_usuario1'] == $id) {
+				$usuario['relation'] = Hash::make($usuario['id']);
 				$amigo2 = User::select($sql)->where('id', $usuario['email_usuario2'])->get();
 				foreach($amigo2 as $pepe) {
 					$usuario['email_user2'] = $pepe['email'];
@@ -28,6 +30,7 @@ class Amigos extends Model
 					$usuario['foto'] = 'http://tie-party-krast.c9users.io/images/users/default.jpg';
 				}
 			} else {
+				$usuario['relation'] = Hash::make($usuario['id']);
 				$amigo = User::select($sql)->where('id', $usuario['email_usuario1'])->get();
 				$usuario['email_user2'] = $amigo[0]['email'];
 				$usuario['foto'] = $amigo[0]['id'];
@@ -123,5 +126,11 @@ class Amigos extends Model
 		$this->email_usuario1 = $amigo1;
         $this->email_usuario2 = $amigo2;
         $res = $this->save();
+	}
+	
+	public function getByUser()
+	{
+		$amigosArray = Amigos::select('*')->where('email_usuario1', auth()->user()->id)->orWhere('email_usuario2', auth()->user()->id)->get();
+		return $amigosArray;
 	}
 }

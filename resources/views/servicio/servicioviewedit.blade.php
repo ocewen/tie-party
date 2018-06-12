@@ -13,7 +13,7 @@
 						<h2>Edita este Servicio</h2>
 						<label for="name">¿Que nombre le darás ahora a este servicio?</label>
 						<input value="{{$s[0]['nombre']}}" type="text" placeholder="Introduzca el nombre del servicio" size="50" name="nombre">
-						<textarea value="{{$s[0]['descripcion']}}" type="text" placeholder="Introduzca la descripcion del servicio" name="descripcion"></textarea>
+						<textarea type="text" placeholder="Introduzca la descripcion del servicio" name="descripcion">{{$s[0]['Descripcion']}}</textarea>
 						<span>Elige el tipo de ocasión que vas a organizar:</span>
 						<input type="radio" id="fiesta" name="tipo" value="Catering" checked> <label class="radio-label" for="Catering">Catering</label>
 						<input type="radio" id="musica" name="tipo" value="Música"> <label class="radio-label" for="Música">Música</label>

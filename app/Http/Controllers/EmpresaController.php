@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Fiesta;
 use App\Mail\VerifyMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,13 @@ class EmpresaController extends Controller
     public function index()
     {
         return view ( 'home/empresa' );
+    }
+    
+    public function getFiestas()
+    {
+        $obj = new Fiesta();
+        $fiestas = $obj->getUserFiesta(auth()->user()->id);
+        return view ( 'fiesta/empresa', compact('fiestas'));
     }
 
     public function viewregister()
