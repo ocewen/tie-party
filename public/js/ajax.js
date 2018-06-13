@@ -134,7 +134,7 @@ $(function() {
 				$('.single-list').empty();
 				var content = '';
 				for(var i = 0; i < json.length; i++) {
-					content += '<div class="single-list-item '+json[i].tipo+'-type"><i class="fa fa-crown"></i><div class="image-box single-list-image"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><img src="../images/public_images/fiesta2.jpg" alt="Imagen de ejemplo"></a></div><div class="single-list-text"><span>'+json[i].nombre+'</span><div class="party-options"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><i class="fa fa-edit"></i></a><a href="/fiesta/delete?id='+json[i].id+'"><i class="fa fa-trash"></i></a></div></div></div>';
+					content += '<div class="single-list-item '+json[i].tipo+'-type"><i class="fa fa-crown"></i><div class="image-box single-list-image"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><img src="'+json[i].foto+'" alt="Imagen de ejemplo"></a></div><div class="single-list-text"><span>'+json[i].nombre+'</span><div class="party-options"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><i class="fa fa-edit"></i></a><a href="/fiesta/delete?id='+json[i].id+'"><i class="fa fa-trash"></i></a></div></div></div>';
 				}
 				$('.single-list').html(content);
 		}).fail(
@@ -660,8 +660,10 @@ $(function() {
 				$('.single-list').empty();
 				var user_id = $('#tai-funct').attr('tai');
 				var content = '';
+				var desc = '';
 				for(var i = 0; i < json.length; i++) {
-							content += '<div class="single-list-item servicio-type"></i><div class="image-box single-list-image"><img src="../images/servicios/'+json[i].id+'" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre+'</span><small>'+json[i].Descripcion+'</small><div class="party-options"><a href="/servicio/ana?iNaE='+json[i].id+'&fUyEi='+idFiesta+'"><i class="fa fa-plus"></i></a></div></div></div>';
+						(json[i].Descripcion == null) ? desc = '' : desc = json[i].Descripcion;
+							content += '<div class="single-list-item servicio-type"></i><div class="image-box single-list-image"><img src="../images/servicios/'+json[i].id+'" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre+'</span><br><span>'+desc+'</span><div class="party-options"><a href="/servicio/ana?iNaE='+json[i].id+'&fUyEi='+idFiesta+'"><i class="fa fa-plus"></i></a></div></div></div>';
 				}
 				$('.single-list').html(content);
 		}).fail(
@@ -675,7 +677,7 @@ $(function() {
 
 	//LISTA INVITADOS -> FIESTA SINGLE
 	//-----------
-	$('#lista_invitados').on('click', function() {
+	$('.lista_invitados').on('click', function() {
 		var idFiesta = $('#single-content').attr('mm');
 
 		$.ajax({
@@ -716,7 +718,7 @@ $(function() {
 				$('.single-list').empty();
 				var content = '';
 				for(var i = 0; i < json.length; i++) {
-							content += '<div class="single-list-item servicio-type"><div class="image-box single-list-image"><img src="../images/public_images/fiesta2.jpg" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre_herramienta+'</span><br><span style="color: #bebebe;">'+json[i].descripcion+'</span></div></div>';
+							content += '<div class="single-list-item '+i+'-type"><div class="image-box single-list-image"><img src="'+json[i].url+'" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre_herramienta+'</span><br><span">'+json[i].descripcion+'</span></div></div>';
 				}
 				$('.single-list').html(content);
 		}).fail(

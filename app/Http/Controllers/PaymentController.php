@@ -156,10 +156,10 @@ class PaymentController extends Controller
             $user->activarPremium(Auth::user()->id);
 
             \Session::put('success','Pago aprobado');
-            return redirect('/home');
+            return redirect('/fiesta/user')->with('status', '¡Enhorabuena, tu estado de Tie-Party Premium ha sido activado!');
         }
-        \Session::put('error','Pago fallido');
+        \Session::put('status','Pago fallido');
 
-		return Redirect::route('paywithpaypal');
+		return Redirect::route('/fiesta/user');
     }
 }

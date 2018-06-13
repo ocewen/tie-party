@@ -58,6 +58,15 @@ class Fiesta extends Model
 		$sql = 'select * from fiesta where id_usuario = '.$id.' AND ((fecha >= "'.$date.'") OR (fecha IS NULL))';
         $fiestasArray = DB::select($sql);
         $result = json_decode(json_encode($fiestasArray), true);
+        for($i = 0; $i < sizeof($result); $i++) {
+        	if(file_exists('../public/images/fiestas/' . $result[$i]['id']))
+        	{
+        		$result[$i]['foto'] = '/images/fiestas/' . $result[$i]['id'];
+        	} else {
+        		$result[$i]['foto'] = '/images/public_images/fiesta2';
+        	}
+        }
+        
 		return $result;
 	}
 

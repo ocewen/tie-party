@@ -28,15 +28,20 @@
                 </div>
                 <div id="foot-3">
                     <!-- Formulario registro empresa -->
-                    <form method="POST" action="{{ route('regemp') }}">
+                    <form method="POST" id="form-empresa" action="{{ route('regemp') }}">
                     @csrf
                         <h4>Registro empresa: </h4>
-                        <input type="text" name="nombre" placeholder="Nombre de la empresa">
-                        <input type="text" name="apellidos" placeholder="Distintivo de la empresa">
-                        <input type="email" name="email" placeholder="Email">
-                        <input type="password" name="password" placeholder="Contraseña">
-                        <input type="password" name="password_confirmation" placeholder="Repetir contraseña">
-                        <input class="enviar" type="submit" value="Registrarte">
+                        <input type="text" name="nombre" id="nombre-empresa" placeholder="Nombre de la empresa">
+                        <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
+                        <input type="text" name="apellidos" id="apellidos-empresa" placeholder="Distintivo de la empresa">
+                        <span class="nombre-red" style="display:none;">Mínimo 2 caracteres</span>
+                        <input type="email" name="email" id="registerEmail-empresa" placeholder="Email">
+                        <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
+                        <input type="password" name="password" id="password-empresa" placeholder="Contraseña">
+                        <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
+                        <input type="password" name="password_confirmation" id="password-confirmation-empresa" placeholder="Repetir contraseña">
+                        <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
+                        <button class="enviar" type="submit" value="Registrarte">Registrarte</button>
                     </form>
                     <!-- fin formulario registro empresa -->
                 </div>

@@ -10,7 +10,7 @@
     </div>
     <div class="single-sidebar-menu">
         <ul>
-            <li><a href="/fiesta/fiesta?fiesta={{$_GET['fiesta']}}">Datos</a></li>
+            <li><a href="/fiesta/fiesta?fiesta={{$_GET['fiesta']}}">Ver la Fiesta</a></li>
             <li><a id="programar-fiesta" href="#">Programar fiesta</a></li>
             <li><a href="/fiesta/user" id="seeProfile">Volver al Perfil</a></li>
             <li><a class="dropdown-item" href="{{ route('cerrarsesion') }}">{{ __('Salir') }}</a></li>

@@ -13,6 +13,16 @@ body {
     overflow-x: hidden;
 }
 
+h1, h2, h3, h4, a, span, p, label, li, input, button, textarea {
+    font-family:Work Sans;
+}
+.clickable {
+    cursor: pointer;
+}
+.clickable:hover {
+    box-shadow: 2px 2px 5px #29D3BA !important;
+}
+
 @media(min-width: 769px) and (max-width: 992px) {
     body {
         padding-top: 128px;
@@ -28,10 +38,6 @@ body {
 a {
     color: #29D3BA;
     text-decoration: none;
-}
-
-h1, h2, h3, h4, a, span, p, label, li, input, button, textarea {
-    font-family:Work Sans;
 }
 
 h1 {
@@ -614,8 +620,11 @@ footer .enviar {
     cursor: pointer;
     width: 100%;
     float: right;
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 5px 10px;;
+}
+#modal-programar-fiesta input[type="file"], #modal-programar-fiesta small {
+    color: #fff;
 }
 #foot-1, #foot-4 {
     position: relative;
@@ -746,8 +755,11 @@ body.single {
 .single-list-text span {
     color: #353535;
     font-size: 1rem;
-    margin-left: 30px;
     display:block;
+}
+.single-list-text span:first-child {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 .party-options {
     position:absolute;
@@ -1113,7 +1125,8 @@ textarea {
     margin-bottom: 70px;
 }
 .servicio-form {
-    padding-bottom: 70px !important;;
+    padding-bottom: 70px !important;
+    margin-top: 50px;
 }
 .servicio-form label {
     display: initial !important;

@@ -7,6 +7,12 @@
                 </div>
             </div>
         @endif
+        <div class="modal modal-aviso" style="display:none;" id="js-modal-form">
+                <div id="interno" class="alert alert-success">
+                    <i class="fa fa-times"></i>
+                    <span>ERROR: Los datos del formulario del registro son incorrectos.</span>
+                </div>
+            </div>
         <section id="pant1">
             <div class="img-portada img-home-1"></div>
             <div class="img-portada img-home-2"></div>
@@ -21,12 +27,18 @@
                     <h2>Crea tu cuenta:</h2>
                     <p>Y comienza a disfrutar con nosotros:</p>
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
                     <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+                    <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
                     <input type="email" name="email" id="registerEmail" placeholder="Email">
-                    <input type="password" name="password" placeholder="Contraseña">
-                    <input type="password" name="password_confirmation" placeholder="Repetir contraseña">
+                    <span class="nombre-red" style="display:none;">Introduzca un email válido</span>
+                    <input type="password" id="password" name="password" placeholder="Contraseña">
+                    <span class="nombre-red" style="display:none;">Mínimo 5 caracteres</span>
+                    <input type="password" id="password-confirmation" name="password_confirmation" placeholder="Repetir contraseña">
+                    <span class="nombre-red" style="display:none;">Las contraseñas deben ser iguales</span>
+                    <br>
                     <span>Al registrarte estás aceptando las políticas de privacidad, las políticas ventas y las políticas de cookies de la empresa Tie-party que te facilitaremos si te pones en contacto con nosotros. </span>
-                    <button class="enviar" type="submit" value="Registrarte">Registrarte</button>
+                    <button class="enviar" value="Registrarte">Registrarte</button>
                 </form>
                 <!-- Fin formulario registro -->
             </div>

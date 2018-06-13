@@ -1,5 +1,8 @@
 $(function() {
     
+    var check_form = 0;
+    var check_form2 = 0;
+    
     $('#login-nav').click(function(e){
         e.preventDefault();
         $('.modal-login').toggle();
@@ -190,6 +193,117 @@ $(function() {
 
     });
 
+    // ------------------------------------------
+    
+    
+    // ------------------------------------------REGISTER FORM VALIDATION PRINCIPAL BOI
+    
+    $('.form-reg-home #nombre').on('focusout', function() {
+       if( $(this).val().length < 5 ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           return false
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');
+               check_form = 1;
+           }
+    });
+    
+    $('.form-reg-home #apellidos').on('focusout', function() {
+       if( $(this).val().length < 5 ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');check_form = 1;
+           }
+    });
+    
+    $('.form-reg-home #registerEmail').on('focusout', function() {
+       if( $(this).val().length < 5 ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');check_form = 1;
+           }
+    });
+    
+    $('.form-reg-home #password').on('focusout', function() {
+       ( $(this).val().length < 5 ) ? $(this).css('border','1pt solid red').next('span').fadeIn('slow') : $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');check_form = 1;
+        if( $(this).val() == $('.form-reg-home #password-confirmation').val() && $(this).val().length >= 5 ) {
+            $(this).css('border','1pt solid #35353599').next('span').hide(); 
+            $('.form-reg-home #password-confirmation').css('border','1pt solid #35353599').next('span').fadeIn('slow');
+            check_form = 1;
+        }
+    });
+    
+    $('.form-reg-home #password-confirmation').on('keyup', function() {
+       if( $(this).val() != $('.form-reg-home #password').val() ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').hide();check_form = 1;
+           }
+    });
+    
+    $('.form-reg-home .enviar').on('click', function(e) {
+        if((check_form == 0) || ($('#password').val().length < 5) || ($('#password-confirmation').val().length < 5) || ($('#apellidos').val().length < 5) || ($('#nombre').val().length < 5)) {
+            e.preventDefault();
+            $('#js-modal-form').show();
+            } else {
+                $('.form-reg-home').submit();
+            }
+    });
+    // ------------------------------------------
+    
+    // ------------------------------------------REGISTER EMPRESA FORM VALIDATION PRINCIPAL BOI
+    
+    $('#nombre-empresa').on('focusout', function() {
+       if( $(this).val().length < 5 ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           return false
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');
+               check_form2 = 1;
+           }
+    });
+    
+    $('#apellidos-empresa').on('focusout', function() {
+       if( $(this).val().length < 2 ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');check_form2 = 1;
+           }
+    });
+    
+    $('#registerEmail-empresa').on('focusout', function() {
+       if( $(this).val().length < 5 ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');check_form2 = 1;
+           }
+    });
+    
+    $('#password-empresa').on('focusout', function() {
+       ( $(this).val().length < 5 ) ? $(this).css('border','1pt solid red').next('span').fadeIn('slow') : $(this).css('border','1pt solid #35353599').next('span').fadeOut('slow');check_form2 = 1;
+        if( $(this).val() == $('#form-empresa #password-confirmation-empresa').val() && $(this).val().length >= 5 ) {
+            $(this).css('border','1pt solid #35353599').next('span').hide(); 
+            $('#form-empresa #password-confirmation-empresa').css('border','1pt solid #35353599').next('span').fadeIn('slow');
+            check_form2 = 1;
+        }
+    });
+    
+    $('#password-confirmation-empresa').on('keyup', function() {
+       if( $(this).val() != $('#form-empresa #password-empresa').val() ) {
+           $(this).css('border','1pt solid red').next('span').fadeIn('slow');
+           } else {
+               $(this).css('border','1pt solid #35353599').next('span').hide();check_form2 = 1;
+           }
+    });
+    
+    $('#form-empresa .enviar').on('click', function(e) {
+        if((check_form2 == 0) || ($('#password-empresa').val().length < 5) || ($('#password-confirmation-empresa').val().length < 5) || ($('#apellidos-empresa').val().length < 2) || ($('#nombre-empresa').val().length < 5)) {
+            e.preventDefault();
+            $('#js-modal-form').show();
+            } else {
+                $('#form-empresa').submit();
+            }
+    });
     // ------------------------------------------
 
 });

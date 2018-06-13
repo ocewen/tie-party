@@ -33,13 +33,31 @@ class ParticiparController extends Controller
 		return redirect('/fiesta/user');
     }
     
+    public function getByFiestaUser($mail, $idFiesta) {
+        $obj = new User();
+        $user = $obj->getEmail($mail);
+        
+        $bool = Participar::select('*')->where('id_usuario', $user[0]['id'])->where('id_fiesta', $idFiesta)->get();
+        if(sizeof($bool) > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    
     public function sendEmail()
 	{
 		$email = $_GET['mail'];
 		$fiesta = $_GET['fPi'];
 		
-		Mail::to($email)->send(new Invite($email, $fiesta));
-		return redirect('/fiesta/fiesta?fiesta='.$fiesta)->with('status', "Invitación enviada correctamente");
+		$bool = $this->getByFiestaUser($email, $fiesta);
+		
+		if($bool == 1) {
+		    return redirect('/fiesta/fiesta?fiesta='.$fiesta)->with('status', "Este usuario ya participa en la fiesta");
+		} else {
+		    Mail::to($email)->send(new Invite($email, $fiesta));
+		    return redirect('/fiesta/fiesta?fiesta='.$fiesta)->with('status', "Invitación enviada correctamente");
+		}
 	}
 	
 	public function unirseEmail()

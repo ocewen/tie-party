@@ -39,13 +39,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
+       }
 
     public function authenticated(Request $request, $user)
     {
         if ($user->activo != 'S') {
             auth()->logout();
-            return back()->with('warning', 'Necesitas verificar tu cuenta. Te hemos enviado un enlace a tu correo, por favor revisa tu email.');
+            return back()->with('status', 'Necesitas verificar tu cuenta. Te hemos enviado un enlace a tu correo, por favor revisa tu email.');
         }
         return redirect()->intended($this->redirectPath());
     }

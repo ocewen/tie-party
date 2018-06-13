@@ -7,7 +7,7 @@
             @include('layouts.singlefiestaNavBar')
                 <div class="single-list">
                     <!-- Single list item -->
-                    <div class="single-list-item party-type" id="lista_invitados">
+                    <div class="single-list-item party-type clickable lista_invitados">
                         <div class="image-box single-list-image">
                             <img src="{{URL::asset('/images/public_images/Invitados.jpg')}}" alt="Imagen de ejemplo">
                         </div>
@@ -17,7 +17,7 @@
                     </div>
                     <!-- Fin Single list item -->
                     <!-- Single list item -->
-                    <div class="single-list-item party-type serv_cont">
+                    <div class="single-list-item party-type serv_cont clickable">
                         <div class="image-box single-list-image">
                             <img src="{{URL::asset('/images/public_images/Servicios.jpg')}}" alt="Imagen de ejemplo">
                         </div>
@@ -27,7 +27,7 @@
                     </div>
                     <!-- Fin Single list item -->
                     <!-- Single list item -->
-                    <div class="single-list-item party-type lista-herramientas">
+                    <div class="single-list-item party-type lista-herramientas clickable">
                         <div class="image-box single-list-image">
                             <img src="{{URL::asset('/images/public_images/Herramientas.jpg')}}" alt="Imagen de ejemplo">
                         </div>
@@ -37,7 +37,7 @@
                     </div>
                     <!-- Fin Single list item -->
                     <!-- Single list item -->
-                    <div class="single-list-item party-type" id="inv-single">
+                    <div class="single-list-item party-type clickable" id="inv-single">
                         <div class="image-box single-list-image">
                             <img src="{{URL::asset('/images/public_images/EnviarInvitaciones.jpg')}}" alt="Imagen de ejemplo">
                         </div>

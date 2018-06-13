@@ -5,6 +5,14 @@
 			   <!-- Fin sidebar -->
 			<div class="single-content-right">
 				@include('layouts.singleNavBar', array('$total' => 'fiestas'))
+				@if (session('status'))
+		            <div class="modal modal-aviso">
+		                <div id="interno" class="alert alert-success">
+		                    <i class="fa fa-times"></i>
+		                    <span>{{ session('status') }}</span>
+		                </div>
+		            </div>
+		        @endif
 				<div class="single-list">
 					<!-- Single list item -->
 					@if($fiestas)
