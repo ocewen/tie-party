@@ -4,7 +4,7 @@
         @if (auth()->user()->premium == 'S')
             <i title="Usuario premium" class="fa fa-crown icon-premium"></i>
         @endif 
-
+        <a href="/fiesta/user">
         @if (file_exists(public_path().'/images/users/'.Auth::user()->id))
             <img src="{{URL::asset('/images/users/'.Auth::user()->id)}}" alt="foto ejemplo">
         @elseif(@fopen('https://www.gravatar.com/avatar/' . md5( strtolower( trim( Auth::user()->email ) ) ) . '?d=' . urlencode('https://www.somewhere.com/homestar.jpg') . '&s=' . 240, "r"))
@@ -12,8 +12,10 @@
                 @else
                 <img src="{{URL::asset('/images/users/default.jpg')}}" alt="foto ejemplo">
         @endif
-        
-        <h2 id="tai-funct" tai="{{ Auth::user()->id }}">{{ Auth::user()->nombre }}</h2>
+        </a>
+        <a href="/fiesta/user" style="color: #333;">
+            <h2 id="tai-funct" tai="{{ Auth::user()->id }}">{{ Auth::user()->nombre }}</h2>
+        </a>
     </div>
     <div class="single-sidebar-menu">
         <ul>

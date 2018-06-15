@@ -512,11 +512,11 @@ $(function() {
 				}
 				
 				$('.single-list').empty();
-				var content = '<ul>';
+				var content = '<ul class="solicitudes-amistad">';
 				
 				for( var i = 0; i < json.length; i++)
 				{
-					content += '<li>' + json[i].email_user2 + ' <a href="#" class="aceptarAmigo" mm="'+json[i].id+'">Aceptar</a></li>';
+					content += '<li>' + json[i].email_user2 + '<div class="solicitudes-opciones"> <a href="#" class="aceptarAmigo" mm="'+json[i].id+'"><i class="fas fa-check"></i></a><a href="#" class="borrarAmigo"  mm="'+json[i].id+'"><i class="fas fa-times"></i></a></div></li>';
 				}
 				content += '</ul>';
 				$('.single-list').append(content);
