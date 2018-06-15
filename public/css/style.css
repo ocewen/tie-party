@@ -108,6 +108,11 @@ img {
     position: relative;
 }
 
+input[type=file] {
+    color: #fff;
+    margin: 30px 0 10px; 
+}
+
 .register-box .adorno-fuegos-1 {
     height: 120px;
     width: 120px;
@@ -983,6 +988,7 @@ body.single::-webkit-scrollbar {
     z-index: 5;
     background-color: rgba(50,50,50,0.5);
     padding-top: 50px;
+    overflow-y: scroll;
 }
 .single-fiesta .modal, .single-boda .modal, .single-celebracion .modal {
     top: 90px;
@@ -1147,28 +1153,49 @@ textarea {
 .servicio-form h2 {
     margin-bottom: 20px;
 }
+.solicitudes-amistad {
+    display: flex;
+    flex-flow: row wrap;
+}
 .solicitudes-amistad li {
-    padding: 20px 20px 40px;
+    padding: 20px 20px 60px;
     background-color: #fff;
     border-radius: 1rem;
-    margin: 5px 0;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
     max-width: 100%;
     position: relative;
+    box-shadow: 2px 2px 4px #dadada;
 }
 .solicitudes-opciones {
-    margin-left: 20px;
     position: absolute;
     bottom: 10px;
-    right: 20px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-around;
 }
 .solicitudes-opciones a {
-    margin-left: 10px;
+    font-size: 2rem;
 }
 .solicitudes-opciones a.borrarAmigo {
     color: #d71010;
+}
+.nombre-solicitud {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.solicitudes-amistad img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 @keyframes aviso {
     0% {

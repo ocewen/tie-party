@@ -2,14 +2,14 @@
     <div class="single-sidebar-image">
         <i class="fa fa-user-alt toggle-icon toggle-icon-sidebar ti-white"></i>
         <i title="Usuario premium" class="fa fa-cogs icon-premium"></i>
-        <a href="">
+        <a href="/home">
             @if (file_exists(public_path().'/images/users/'.Auth::user()->id))
             <img src="{{URL::asset('/images/users/'.Auth::user()->id)}}" alt="foto ejemplo">
             @else
             <img src="{{URL::asset('/images/users/default.jpg')}}" alt="foto ejemplo">
             @endif
         </a>
-        <a href="">
+        <a href="/home">
             <h2 id="tai-funct" tai="{{ Auth::user()->id }}">{{ Auth::user()->nombre }}</h2>
         </a>
     </div>

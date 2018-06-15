@@ -1,14 +1,14 @@
 <div class="single-sidebar">
     <div class="single-sidebar-image">
         <i class="fa fa-user-alt toggle-icon toggle-icon-sidebar ti-white"></i>
-        <a href="">
+        <a href="/fiesta/fiesta?fiesta={{$arr[0]['id']}}">
         @if(file_exists(public_path().'/images/fiestas/'.$_GET['fiesta']))
             <img src="{{ URL::asset('/images/fiestas/'.$_GET['fiesta']) }}" alt="foto ejemplo">
         @else
             <img src="{{ URL::asset('/images/public_images/fiesta2.jpg') }}" alt="foto ejemplo">
         @endif
         </a>
-        <a href="">
+        <a href="/fiesta/fiesta?fiesta={{$arr[0]['id']}}">
             <h2 id="tai-funct" tai="$_GET['fiesta']">{{$arr[0]['nombre']}}</h2>
         </a>
     </div>

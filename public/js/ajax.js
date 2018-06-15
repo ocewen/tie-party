@@ -516,7 +516,7 @@ $(function() {
 				
 				for( var i = 0; i < json.length; i++)
 				{
-					content += '<li>' + json[i].email_user2 + '<div class="solicitudes-opciones"> <a href="#" class="aceptarAmigo" mm="'+json[i].id+'"><i class="fas fa-check"></i></a><a href="#" class="borrarAmigo"  mm="'+json[i].id+'"><i class="fas fa-times"></i></a></div></li>';
+					content += '<li><img src="' +json[i].foto +'" alt="foto de '+ json[i].nombre_user2 +'"><span class="nombre-solicitud">' + json[i].nombre_user2 + ' ' + json[i].apellidos_user2 + '</span><div class="solicitudes-opciones"> <a href="#" class="aceptarAmigo" mm="'+json[i].id+'"><i class="fas fa-check"></i></a><a href="#" class="borrarAmigo"  mm="'+json[i].id+'"><i class="fas fa-times"></i></a></div></li>';
 				}
 				content += '</ul>';
 				$('.single-list').append(content);

@@ -100,9 +100,20 @@ class Amigos extends Model
 	{
 		$amigosArray = Amigos::select('*')->where('email_usuario2', auth()->user()->id)->where('estado', 'N')->get();
 		foreach ($amigosArray as $usuario) {
-			$sql = "email";
+			$sql = "*";
 			$amigo = User::select($sql)->where('id', $usuario['email_usuario1'])->get();
 			$usuario['email_user2'] = $amigo[0]['email'];
+			$usuario['nombre_user2'] = $amigo[0]['nombre'];
+			$usuario['apellidos_user2'] = $amigo[0]['apellidos'];
+			$usuario['foto'] = $amigo[0]['id'];
+			$grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $usuario['email_user2'] ) ) ) . "?d=" . urlencode("https://www.somewhere.com/homestar.jpg") . "&s=" . 240;
+			if(file_exists('../public/images/users/' . $usuario['foto'])) {
+				$usuario['foto'] = 'http://tie-party-krast.c9users.io/images/users/'. $usuario['foto'];
+			} else if(@fopen($grav_url,"r")){
+				$usuario['foto'] = $grav_url;
+			} else {
+				$usuario['foto'] = 'http://tie-party-krast.c9users.io/images/users/default.jpg';
+			}
 		}
 		return $amigosArray;
 	}
