@@ -759,7 +759,7 @@ $(function() {
 
 	//VER DATOS FIESTA --> FIESTAS
 	//-----------
-	$('#view-datos-fiesta').on('click', function() {
+	$('.view-datos-fiesta').on('click', function() {
 		var fIpM = $(this).attr('fipm');
 	   $.ajax({
 			method: "GET",

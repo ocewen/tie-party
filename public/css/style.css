@@ -882,7 +882,7 @@ body.single::-webkit-scrollbar {
 /* Single Celebracion */
 
 .single-celebracion .single-sidebar {
-    background-color:#34D5BD4D;
+    background-color:#eaeaea;
 }
 
 .single-celebracion .single-sidebar a {
@@ -934,7 +934,9 @@ body.single::-webkit-scrollbar {
 .single-boda .single-list {
     background-color: #EAEAEA;
 }
-
+.serv_cont br {
+    display:none;
+}
 /* Edit perfil */
 .single-list form {
     flex: 1 1 320px;
@@ -990,7 +992,6 @@ body.single::-webkit-scrollbar {
     padding-top: 50px;
     overflow-y: scroll;
 }
-/* Hola mundo */
 .single-fiesta .modal, .single-boda .modal, .single-celebracion .modal {
     top: 90px;
     left: 0px;

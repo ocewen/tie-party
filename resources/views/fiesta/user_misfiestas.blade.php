@@ -43,7 +43,7 @@
 					@foreach($part as $fiesta)
 						<div class="single-list-item {{$fiesta['tipo']}}-type">
 						<div class="image-box single-list-image">
-							<a href="#" id="view-datos-fiesta" fIpM="{{$fiesta['id']}}">
+							<a href="#" class="view-datos-fiesta" fIpM="{{$fiesta['id']}}">
 								<img src="{{$fiesta['foto']}}" alt="Imagen de ejemplo">
 							</a>
 						</div>

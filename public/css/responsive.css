@@ -382,6 +382,9 @@
         height: 100% !important;
         padding: 40px 60px !important;
     }
+    .serv_cont br {
+        display:initial;
+    }
 }
 @media(max-width: 556px) {
     .modal {
