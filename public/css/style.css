@@ -990,6 +990,7 @@ body.single::-webkit-scrollbar {
     padding-top: 50px;
     overflow-y: scroll;
 }
+/* Hola mundo */
 .single-fiesta .modal, .single-boda .modal, .single-celebracion .modal {
     top: 90px;
     left: 0px;
