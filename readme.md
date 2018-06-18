@@ -1,4 +1,4 @@
-<p align="center"><img src="https://drive.google.com/file/d/1Ycl_-NDvvWMcD_h6fXvkcJWYU9fRJqfi/view?usp=sharing"></p>
+<p align="center"><img src="public/images/public_images/logo.png"></p>
 
 # Tie-Party
 ***
