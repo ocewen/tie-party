@@ -64,6 +64,7 @@ Route::get('/empresa/fiestas', 'EmpresaController@getFiestas')->middleware('auth
 Route::get('/amigos', 'AmigosController@index')->middleware('auth');
 Route::get('/amigos/getnof', 'AmigosController@indexFiesta')->middleware('auth');
 Route::get('/amigos/aceptar', 'AmigosController@aceptar')->middleware('auth');
+Route::get('/amigos/borrar', 'AmigosController@borrar')->middleware('auth');
 Route::get('/amigos/solicitudes', 'AmigosController@verSolicitudes')->middleware('auth');
 Route::post('/amigos/buscar', 'UserController@getFromEmail')->middleware('auth');
 Route::get('/amigos/buscarajax', 'UserController@getFromFriends')->middleware('auth');

@@ -553,6 +553,33 @@ $(function() {
 				console.log( "Request failed: " + jqXHR.statusText );
 		});
 	});
+	
+	$('.single-list').on('click', '.borrarAmigo', function() {
+
+		$.ajaxSetup({
+			headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+
+		var mm = $(this).attr('mm');
+		$.ajax({
+			method: "GET",
+			url: "/amigos/borrar",
+			dataType: "JSON",
+			data: {
+				id_amistad : mm
+			}
+		}).done(
+			function(json) {
+				alert('Solicitud rechazada');
+				window.location.replace('/fiesta/user');
+		}).fail(
+			function(jqXHR, textStatus) {
+				alert('No ha sido posible cancelar la solicitud');
+				console.log( "Request failed: " + jqXHR.statusText );
+		});
+	});
 	//-----------
 	//-----------
 

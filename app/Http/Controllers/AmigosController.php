@@ -31,6 +31,14 @@ class AmigosController extends Controller
         return $amigos;
     }
 
+    public function borrar()
+    {
+        $id = $_GET['id_amistad'];
+        $qq = Amigos::find($id);
+        $qq->delete();
+        return 'true';
+    }
+    
     public function aceptar()
     {
         $id = $_GET['id_amistad'];
