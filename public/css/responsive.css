@@ -385,6 +385,9 @@
     .serv_cont br {
         display:initial;
     }
+    .serv_cont br {
+        display: initial;
+    }
 }
 @media(max-width: 556px) {
     .modal {

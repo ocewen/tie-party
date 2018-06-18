@@ -287,7 +287,7 @@ i.fa.fa-bars {
 }
 
 #pant1 .img-home-3 {
-    background-image: url("../images/public_images/celebracion1.jpg");
+    background-image: url("../images/public_images/1.jpg");
     background-position: 50%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -882,7 +882,7 @@ body.single::-webkit-scrollbar {
 /* Single Celebracion */
 
 .single-celebracion .single-sidebar {
-    background-color:#eaeaea;
+    background-color: #eaeaea;
 }
 
 .single-celebracion .single-sidebar a {
@@ -907,6 +907,9 @@ body.single::-webkit-scrollbar {
 
 .single-celebracion .single-list-item {
     background-color: #EAEAEA;
+}
+.serv_cont br {
+    display: none;
 }
 
 /* Single Boda */
@@ -934,9 +937,7 @@ body.single::-webkit-scrollbar {
 .single-boda .single-list {
     background-color: #EAEAEA;
 }
-.serv_cont br {
-    display:none;
-}
+
 /* Edit perfil */
 .single-list form {
     flex: 1 1 320px;
@@ -992,6 +993,7 @@ body.single::-webkit-scrollbar {
     padding-top: 50px;
     overflow-y: scroll;
 }
+/* Hola mundo */
 .single-fiesta .modal, .single-boda .modal, .single-celebracion .modal {
     top: 90px;
     left: 0px;
