@@ -1,4 +1,12 @@
 @include('layouts.headerTieSingle', array('body_valor' => $arr[0]['tipo']))
+        @if (session('status'))
+            <div class="modal modal-aviso">
+                <div id="interno" class="alert alert-success">
+                    <i class="fa fa-times"></i>
+                    <span>{{ session('status') }}</span>
+                </div>
+            </div>
+        @endif
         <section id="single-content" mm="{{$arr[0]['id']}}">
             <!-- Sidebar -->
             @include('layouts.fiestaSidebar', array('arr' => $arr))

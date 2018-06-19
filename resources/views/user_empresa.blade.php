@@ -21,7 +21,7 @@
                         <div class="single-list-text">
                             <a href="#"><span>{{$servicio['nombre']}}</span></a>
                             <div class="party-options">
-                                <a title="Dejar servicio" href="/servicio/delete?id={{$servicio['id']}}"><i class="fa fa-times"></i></a>    
+                                <a title="Dejar servicio" class="borrar_tik" href="/servicio/delete?id={{$servicio['id']}}"><i class="fa fa-times"></i></a>    
                             </div>                            
                         </div>
                         </div>

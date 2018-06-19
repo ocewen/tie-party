@@ -94,6 +94,9 @@
         left: inherit !important; 
         padding: 15px 20px 10px 50px !important;
     }
+    .modal-login {
+        overflow-y: hidden;
+    }
 }
 @media(max-width: 992px) {
     .home-boxs {
@@ -382,11 +385,8 @@
         height: 100% !important;
         padding: 40px 60px !important;
     }
-    .serv_cont br {
+    .single-nav br {
         display:initial;
-    }
-    .serv_cont br {
-        display: initial;
     }
 }
 @media(max-width: 556px) {

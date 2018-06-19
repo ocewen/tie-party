@@ -11,6 +11,7 @@
             <label>
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Recordar') }}
             </label>
+            <a href="{{ route('password.request') }}">¿Has olvidado la contraseña?</a>
             <button class="enviar-white" type="submit">Entrar</button>
         </form>
         @else    

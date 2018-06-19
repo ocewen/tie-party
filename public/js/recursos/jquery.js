@@ -112,6 +112,20 @@ $(function() {
         $('.modal-aviso').hide();
     })
     
+    $('#btn-crear-servicio').click(function(){
+        $('#modal-crear-servicio').show();
+        $(document).mouseup(function(e) {
+            var container = $('#modal-crear-servicio #interno');
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+              $('#modal-crear-servicio').hide();
+            }
+        });
+    });
+    $('#modal-crear-servicio i.fa.fa-times').click(function(){
+        $('#modal-crear-servicio').hide();
+    })
+    
+    
 // ------------------------------------------Boton Sidebar
 
     $('.single-sidebar-image .toggle-icon-sidebar').click(function(){
@@ -303,6 +317,22 @@ $(function() {
             } else {
                 $('#form-empresa').submit();
             }
+    });
+    
+    $('#subirfotofiesta').on('submit', function(e) {
+       var fsize = $('#filefiesta')[0].files[0].size / 1024;
+       if(fsize > 5000) {
+           alert('ERROR \n El tamaño de la foto es mayor de 5MB');
+        e.preventDefault();    
+       }
+    });
+    
+    $('.borrar_tik').on('click', function(e) {
+       if(confirm('¿Está seguro de que desea borrar?')){
+           
+       } else {
+           e.preventDefault();
+       }
     });
     // ------------------------------------------
 

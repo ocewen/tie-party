@@ -1,4 +1,4 @@
-<p align="center"><img src="public/images/public_images/logo.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ocewen/tie-party/master/public/images/public_images/logo.png"></p>
 
 # Tie-Party
 ***

@@ -51,6 +51,11 @@ class Handler extends ExceptionHandler
 	    {
 	        return response()->view('missing', [], 404);
 	    }
+	    
+	    // Controlamos si se supera el tamaño máximo de imagen
+	    if ($e instanceof \Illuminate\Http\Exceptions\PostTooLargeException)
+            return redirect()->back()->with('status', 'No se ha podido subir la imagen porque supera el límite de tamaño');
+        
 	    return parent::render($request, $e);
 	}
 }

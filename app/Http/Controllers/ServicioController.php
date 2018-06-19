@@ -60,9 +60,10 @@ class ServicioController extends Controller
         return redirect('/home');
     }
 
-    public function showAll() {
+    public function showAll(Request $request) {
         $servicio = new Servicio();
-        $valor = $servicio->getAll();
+        $fiesta = $request->get('fiesta');
+        $valor = $servicio->getAllNotIn($fiesta);
         return $valor;
     }
 

@@ -17,7 +17,7 @@
         <ul>
             <li><a href="/user/perfil" id="seeProfile">Ver Perfil</a></li>
             <li><a href="/home" id="">Mis servicios</a></li>
-            <li><a href="#" id="">Crear servicio</a></li>
+            <li><a href="#" id="btn-crear-servicio">Crear servicio</a></li>
             <li><a href="#" id="">Peticiones</a></li>
             <li><a href="#" id="">Servicios Pendientes</a></li>
             <li><a class="dropdown-item" href="{{ route('cerrarsesion') }}">{{ __('Salir') }}</a></li>

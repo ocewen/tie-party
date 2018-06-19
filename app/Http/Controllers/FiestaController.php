@@ -283,7 +283,7 @@ class FiestaController extends Controller
 
     public function subirFoto(Request $request){
         $id = $_POST['fIpM'];
-        $upload = new FileUpload('foto' , $id, public_path('/images/fiestas') , 5 * 1024 * 1024, FileUpload::SOBREESCRIBIR);
+        $upload = new FileUpload('foto' , $id, public_path('/images/fiestas') , 15 * 1024 * 1024, FileUpload::SOBREESCRIBIR);
         $res = $upload->upload();
         return redirect('/fiesta/fiesta?fiesta='.$id);
 	}

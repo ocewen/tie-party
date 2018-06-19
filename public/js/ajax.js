@@ -134,7 +134,7 @@ $(function() {
 				$('.single-list').empty();
 				var content = '';
 				for(var i = 0; i < json.length; i++) {
-					content += '<div class="single-list-item '+json[i].tipo+'-type"><i class="fa fa-crown"></i><div class="image-box single-list-image"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><img src="'+json[i].foto+'" alt="Imagen de ejemplo"></a></div><div class="single-list-text"><span>'+json[i].nombre+'</span><div class="party-options"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><i class="fa fa-edit"></i></a><a href="/fiesta/delete?id='+json[i].id+'"><i class="fa fa-trash"></i></a></div></div></div>';
+					content += '<div class="single-list-item '+json[i].tipo+'-type"><i class="fa fa-crown"></i><div class="image-box single-list-image"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><img src="'+json[i].foto+'" alt="Imagen de ejemplo"></a></div><div class="single-list-text"><span>'+json[i].nombre+'</span><div class="party-options"><a href="/fiesta/fiesta?fiesta='+json[i].id+'"><i class="fa fa-edit"></i></a><a class="borrar_tik" href="/fiesta/delete?id='+json[i].id+'"><i class="fa fa-trash"></i></a></div></div></div>';
 				}
 				$('.single-list').html(content);
 		}).fail(
@@ -166,7 +166,7 @@ $(function() {
 				$('.single-list').empty();
 				var content = '';
 				for(var i = 0; i < json.length; i++) {
-					content += '<div class="single-list-item '+json[i].tipo+'-type"><div class="image-box single-list-image"><img src="'+json[i].foto+'" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre_fiesta+'<div class="party-options"></span><a title="Dejar fiesta" href="/fiesta/salir?fUyEi='+json[i].id+'"><i class="fa fa-door-open"></i></a></div></div></div>';
+					content += '<div class="single-list-item '+json[i].tipo+'-type"><div class="image-box single-list-image"><img src="'+json[i].foto+'" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre_fiesta+'<div class="party-options"></span><a title="Dejar fiesta" class="borrar_tik" href="/fiesta/salir?fUyEi='+json[i].id+'"><i class="fa fa-door-open"></i></a></div></div></div>';
 				}
 				$('.single-list').html(content);
 		}).fail(
@@ -236,7 +236,7 @@ $(function() {
 				var content = '';
 				for( var i = 0; i < json.length; i++)
 				{
-					content += '<div class="single-list-item"><div class="image-box single-list-image"><a href=""><img class="backup_picture" src="'+json[i].foto+'" alt="Imagen de ejemplo"></a></div><div class="single-list-text"><a href="#"><span> ' + json[i].email_user2 +'  </span></a><div class="party-options"><a title="Borrar amigo" href="/delete/friend?fDpS='+json[i].relation+'"><i class="fa fa-trash"></i></a></div></div></div>';
+					content += '<div class="single-list-item"><div class="image-box single-list-image"><a href=""><img class="backup_picture" src="'+json[i].foto+'" alt="Imagen de ejemplo"></a></div><div class="single-list-text"><a href="#"><span> ' + json[i].email_user2 +'  </span></a><div class="party-options"><a title="Borrar amigo" class="borrar_tik" href="/delete/friend?fDpS='+json[i].relation+'"><i class="fa fa-trash"></i></a></div></div></div>';
 				}
 				content += '';
 				$('.single-list').html(content);
@@ -516,7 +516,7 @@ $(function() {
 				
 				for( var i = 0; i < json.length; i++)
 				{
-					content += '<li><img src="' +json[i].foto +'" alt="foto de '+ json[i].nombre_user2 +'"><span class="nombre-solicitud">' + json[i].nombre_user2 + ' ' + json[i].apellidos_user2 + '</span><div class="solicitudes-opciones"> <a href="#" class="aceptarAmigo" mm="'+json[i].id+'"><i class="fas fa-check"></i></a><a href="#" class="borrarAmigo"  mm="'+json[i].id+'"><i class="fas fa-times"></i></a></div></li>';
+					content += '<li><img src="' +json[i].foto +'" alt="foto de '+ json[i].nombre_user2 +'"><span class="nombre-solicitud">' + json[i].nombre_user2 + ' ' + json[i].apellidos_user2 + '</span><div class="solicitudes-opciones"> <a href="#" class="aceptarAmigo" mm="'+json[i].id+'"><i class="fas fa-check"></i></a><a href="#" class="borrarAmigo borrar_tik"  mm="'+json[i].id+'"><i class="fas fa-times"></i></a></div></li>';
 				}
 				content += '</ul>';
 				$('.single-list').append(content);
@@ -681,7 +681,9 @@ $(function() {
 			method: "GET",
 			url: "/servicio/todos",
 			dataType: "JSON",
-			data: ""
+			data: {
+				fiesta : idFiesta
+			}
 		}).done(
 			function(json) {
 				$('.single-list').empty();
@@ -693,6 +695,9 @@ $(function() {
 							content += '<div class="single-list-item servicio-type"></i><div class="image-box single-list-image"><img src="../images/servicios/'+json[i].id+'" alt="Imagen de ejemplo"></div><div class="single-list-text"><span>'+json[i].nombre+'</span><br><span>'+desc+'</span><div class="party-options"><a href="/servicio/ana?iNaE='+json[i].id+'&fUyEi='+idFiesta+'"><i class="fa fa-plus"></i></a></div></div></div>';
 				}
 				$('.single-list').html(content);
+				if(json.length < 1 ) {
+					alert('Has contratado todos los servicios posibles');
+				}
 		}).fail(
 			function(jqXHR, textStatus) {
 				alert('No');

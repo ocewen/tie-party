@@ -34,10 +34,29 @@ class Servicio extends Model
     	$array = Servicio::All();
     	foreach ($array as $usuario) {
 			$sql = "nombre";
+			$sql = 'SELECT * FROM servicio ser LEFT JOIN contratar cont ON(ser.id = cont.id_servicio) WHERE cont.id_fiesta = ' . $fiesta;
 			$result = User::select($sql)->where('id', $usuario['id_usuario'])->get();
 			$usuario['nombre_user'] = $result[0]['nombre'];
     	}
     	return $array;
+    }
+    
+    public function getAllNotIn($fiesta)
+    {   
+        $sql = 'SELECT * FROM servicio ser LEFT JOIN contratar cont ON(ser.id = cont.id_servicio) WHERE cont.id_fiesta = ' . $fiesta;
+        $servicios = DB::select($sql);
+        $servicios = json_decode(json_encode($servicios), true);
+        
+        $arr = '';
+        foreach($servicios as $servicio)
+            $arr .= $servicio['id_servicio'] . ',';
+            
+        $arr = rtrim($arr,",");
+            
+        $sql = 'SELECT DISTINCT * FROM servicio WHERE id NOT IN (' . $arr . ')';
+        $servicios = DB::select($sql);
+        $servicios = json_decode(json_encode($servicios), true);
+        return $servicios;
     }
 
     public function getAllProgram($id)

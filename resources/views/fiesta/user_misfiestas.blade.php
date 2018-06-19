@@ -1,4 +1,12 @@
 @include('layouts.headerTieSingle', array('body_valor' => ''))
+		@if (session('status'))
+            <div class="modal modal-aviso">
+                <div id="interno" class="alert alert-success">
+                    <i class="fa fa-times"></i>
+                    <span>{{ session('status') }}</span>
+                </div>
+            </div>
+        @endif
 		<section id="single-content">
 			<!-- Sidebar -->
 			@include('layouts.singleSidebar')
@@ -32,7 +40,7 @@
 								<a href="#"><span>{{$fiesta['nombre']}}</span></a>
 								<div class="party-options">
 									<a title="Editar fiesta" href="/fiesta/fiesta?fiesta={{$fiesta['id']}}"><i class="fa fa-edit"></i></a>
-									<a title="Borrar fiesta" href="/fiesta/delete?id={{$fiesta['id']}}"><i class="fa fa-trash"></i></a>
+									<a title="Borrar fiesta" class="borrar_tik" href="/fiesta/delete?id={{$fiesta['id']}}"><i class="fa fa-trash"></i></a>
 								</div>
 							</div>
 						</div>

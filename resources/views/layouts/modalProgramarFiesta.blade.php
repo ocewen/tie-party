@@ -14,11 +14,11 @@
             <input type="submit" class="enviar-white" value="Programa tu Fiesta">
         </form>
         <br>
-        <form class="servicio-form" method="POST" action="{{ route('subirfotofiesta') }}" enctype="multipart/form-data">
+        <form class="servicio-form" id="subirfotofiesta" method="POST" action="{{ route('subirfotofiesta') }}" enctype="multipart/form-data">
         @csrf
             <h2>Sube o actualiza la imagen de tu fiesta</h2>
             <input type="hidden" value="{{$arr[0]['id']}}" name="fIpM">
-            <input type="file" name="foto"><small>5MB Máx.<small>
+            <input type="file" id="filefiesta" name="foto"><small>5MB Máx.<small>
             <input type="submit" class="enviar-white" value="Subir Foto">
         </form>
     </div>
