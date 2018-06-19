@@ -130,7 +130,7 @@ class Fiesta extends Model
 
 	public function buscarAjax($fiesta)
 	{
-		$fiesta = Fiesta::select('*')->where('nombre','like','%' .$fiesta . '%')->where('privada','N')->limit(5)->get();
+		$fiesta = Fiesta::select('*')->where('nombre','like','%' .$fiesta . '%')->where('privada','N')->where('id_usuario','!=', auth()->user()->id)->limit(5)->get();
 		return $fiesta;
 	}
 }

@@ -51,14 +51,14 @@
 					@foreach($part as $fiesta)
 						<div class="single-list-item {{$fiesta['tipo']}}-type">
 						<div class="image-box single-list-image">
-							<a href="#" class="view-datos-fiesta" fIpM="{{$fiesta['id']}}">
+							<a href="#" class="view-datos-fiesta" fIpM="{{$fiesta['id_fiesta']}}">
 								<img src="{{$fiesta['foto']}}" alt="Imagen de ejemplo">
 							</a>
 						</div>
 						<div class="single-list-text">
 							<a href="#"><span>{{$fiesta['nombre_fiesta']}}</span></a>
 							<div class="party-options">
-								<a title="Dejar fiesta" href="/fiesta/salir?fUyEi={{$fiesta['id']}}"><i class="fa fa-door-open"></i></a>    
+								<a title="Dejar fiesta" href="/fiesta/salir?fUyEi={{$fiesta['id_fiesta']}}"><i class="fa fa-door-open"></i></a>    
 							</div>                            
 						</div>
 						</div>
